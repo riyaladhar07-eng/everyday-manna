@@ -9,10 +9,23 @@
 <body>
 
     <div class="container">
+
         <h1>Everyday Manna</h1>
+
         <p class="subtitle">
             Daily Hope & Bible Encouragement
         </p>
+
+        <div class="daily-verse">
+            <h3>Daily Verse</h3>
+            <p>
+                "The steadfast love of the Lord never ceases;
+                His mercies never come to an end."
+                — Lamentations 3:22
+            </p>
+        </div>
+
+        <h2 class="topic-title">Choose Your Topic</h2>
 
         <div class="topics">
             <button onclick="showVerse('hope')">Hope</button>
@@ -21,14 +34,28 @@
             <button onclick="showVerse('faith')">Faith</button>
             <button onclick="showVerse('love')">Love</button>
             <button onclick="showVerse('strength')">Strength</button>
+            <button onclick="showVerse('depression')">Depression</button>
+            <button onclick="showVerse('stress')">Stress</button>
+            <button onclick="showVerse('forgiveness')">Forgiveness</button>
+            <button onclick="showVerse('loneliness')">Loneliness</button>
+            <button onclick="showVerse('peace')">Peace</button>
+            <button onclick="showVerse('joy')">Joy</button>
+            <button onclick="showVerse('wisdom')">Wisdom</button>
+            <button onclick="showVerse('courage')">Courage</button>
         </div>
 
         <div id="verse-box">
             <h2>Select a topic</h2>
-            <p>Your verse and encouragement will appear here.</p>
+            <p>Your Bible verse and encouragement will appear here.</p>
         </div>
+
+        <footer>
+            <p>Made with faith and hope ✨</p>
+        </footer>
+
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>

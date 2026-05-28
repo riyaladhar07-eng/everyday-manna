@@ -82,3 +82,64 @@ function showVerse(topic) {
         <p><strong>${verses[topic].message}</strong></p>
     `;
 }
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
+
+function searchTopics() {
+
+    let input =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    let buttons =
+        document.querySelectorAll(".topics button");
+
+    buttons.forEach(button => {
+
+        if (
+            button.innerText
+            .toLowerCase()
+            .includes(input)
+        ) {
+
+            button.style.display = "inline-block";
+
+        } else {
+
+            button.style.display = "none";
+        }
+
+    });
+}
+
+const dailyVerses = [
+
+    '"The Lord is my shepherd." — Psalm 23:1',
+
+    '"Be still and know that I am God." — Psalm 46:10',
+
+    '"I can do all things through Christ." — Philippians 4:13',
+
+    '"God is our refuge and strength." — Psalm 46:1',
+
+    '"The joy of the Lord is your strength." — Nehemiah 8:10'
+
+];
+
+function generateDailyVerse() {
+
+    const randomVerse =
+        dailyVerses[
+            Math.floor(
+                Math.random() * dailyVerses.length
+            )
+        ];
+
+    document.getElementById("dailyVerseText")
+        .innerText = randomVerse;
+}
+
+generateDailyVerse();

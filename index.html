@@ -16,37 +16,71 @@
             Daily Hope & Bible Encouragement
         </p>
 
+        <button id="darkModeBtn" onclick="toggleDarkMode()">
+            🌙 Dark Mode
+        </button>
+
+        <br><br>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search topic..."
+            onkeyup="searchTopics()"
+        >
+
         <div class="daily-verse">
+
             <h3>Daily Verse</h3>
-            <p>
-                "The steadfast love of the Lord never ceases;
-                His mercies never come to an end."
-                — Lamentations 3:22
-            </p>
+
+            <p id="dailyVerseText"></p>
+
+            <button onclick="generateDailyVerse()">
+                New Verse
+            </button>
+
         </div>
 
         <h2 class="topic-title">Choose Your Topic</h2>
 
-        <div class="topics">
+        <div class="topics" id="topicsContainer">
+
             <button onclick="showVerse('hope')">Hope</button>
+
             <button onclick="showVerse('fear')">Fear</button>
+
             <button onclick="showVerse('anxiety')">Anxiety</button>
+
             <button onclick="showVerse('faith')">Faith</button>
+
             <button onclick="showVerse('love')">Love</button>
+
             <button onclick="showVerse('strength')">Strength</button>
+
             <button onclick="showVerse('depression')">Depression</button>
+
             <button onclick="showVerse('stress')">Stress</button>
+
             <button onclick="showVerse('forgiveness')">Forgiveness</button>
+
             <button onclick="showVerse('loneliness')">Loneliness</button>
+
             <button onclick="showVerse('peace')">Peace</button>
+
             <button onclick="showVerse('joy')">Joy</button>
+
             <button onclick="showVerse('wisdom')">Wisdom</button>
+
             <button onclick="showVerse('courage')">Courage</button>
+
         </div>
 
         <div id="verse-box">
+
             <h2>Select a topic</h2>
+
             <p>Your Bible verse and encouragement will appear here.</p>
+
         </div>
 
         <footer>

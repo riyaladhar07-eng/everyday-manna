@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Everyday Manna</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
     <div class="container">
@@ -16,8 +24,11 @@
             Daily Hope & Bible Encouragement
         </p>
 
-        <button id="darkModeBtn" onclick="toggleDarkMode()">
+        <button id="darkModeBtn"
+                onclick="toggleDarkMode()">
+
             🌙 Dark Mode
+
         </button>
 
         <br><br>
@@ -41,37 +52,67 @@
 
         </div>
 
-        <h2 class="topic-title">Choose Your Topic</h2>
+        <h2 class="topic-title">
+            Choose Your Topic
+        </h2>
 
-        <div class="topics" id="topicsContainer">
+        <div class="topics">
 
-            <button onclick="showVerse('hope')">Hope</button>
+            <button onclick="showVerse('hope')">
+                Hope
+            </button>
 
-            <button onclick="showVerse('fear')">Fear</button>
+            <button onclick="showVerse('fear')">
+                Fear
+            </button>
 
-            <button onclick="showVerse('anxiety')">Anxiety</button>
+            <button onclick="showVerse('anxiety')">
+                Anxiety
+            </button>
 
-            <button onclick="showVerse('faith')">Faith</button>
+            <button onclick="showVerse('faith')">
+                Faith
+            </button>
 
-            <button onclick="showVerse('love')">Love</button>
+            <button onclick="showVerse('love')">
+                Love
+            </button>
 
-            <button onclick="showVerse('strength')">Strength</button>
+            <button onclick="showVerse('strength')">
+                Strength
+            </button>
 
-            <button onclick="showVerse('depression')">Depression</button>
+            <button onclick="showVerse('depression')">
+                Depression
+            </button>
 
-            <button onclick="showVerse('stress')">Stress</button>
+            <button onclick="showVerse('stress')">
+                Stress
+            </button>
 
-            <button onclick="showVerse('forgiveness')">Forgiveness</button>
+            <button onclick="showVerse('forgiveness')">
+                Forgiveness
+            </button>
 
-            <button onclick="showVerse('loneliness')">Loneliness</button>
+            <button onclick="showVerse('loneliness')">
+                Loneliness
+            </button>
 
-            <button onclick="showVerse('peace')">Peace</button>
+            <button onclick="showVerse('peace')">
+                Peace
+            </button>
 
-            <button onclick="showVerse('joy')">Joy</button>
+            <button onclick="showVerse('joy')">
+                Joy
+            </button>
 
-            <button onclick="showVerse('wisdom')">Wisdom</button>
+            <button onclick="showVerse('wisdom')">
+                Wisdom
+            </button>
 
-            <button onclick="showVerse('courage')">Courage</button>
+            <button onclick="showVerse('courage')">
+                Courage
+            </button>
 
         </div>
 
@@ -79,12 +120,47 @@
 
             <h2>Select a topic</h2>
 
-            <p>Your Bible verse and encouragement will appear here.</p>
+            <p>
+                Your Bible verse and encouragement
+                will appear here.
+            </p>
+
+            <button onclick="saveFavorite()">
+                ⭐ Save Favorite
+            </button>
+
+            <button onclick="shareVerse()">
+                📤 Share Verse
+            </button>
+
+        </div>
+
+        <div class="chatbot">
+
+            <h2>AI Encouragement Chat</h2>
+
+            <input
+                type="text"
+                id="userFeeling"
+                placeholder="Type how you feel..."
+            >
+
+            <br>
+
+            <button onclick="aiEncouragement()">
+                Get Encouragement
+            </button>
+
+            <div id="chat-response"></div>
 
         </div>
 
         <footer>
-            <p>Made with faith and hope ✨</p>
+
+            <p>
+                Made with faith and hope ✨
+            </p>
+
         </footer>
 
     </div>

@@ -20,229 +20,130 @@
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <!-- HERO HEADER -->
+    <!-- HERO -->
 
-        <div class="hero">
+    <div class="hero">
 
-            <div class="hero-text">
+        <div class="hero-text">
 
-                <h1>Everyday Manna ✨</h1>
+            <h1>Everyday Manna ✨</h1>
 
-                <p>
-                    God is with you today
-                </p>
-
-            </div>
-
-            <div class="profile-icon">
-
-                🙏
-
-            </div>
+            <p>God is with you today</p>
 
         </div>
 
-        <!-- DARK MODE -->
+        <div class="profile-icon">🙏</div>
 
-        <button id="darkModeBtn"
-                onclick="toggleDarkMode()">
+    </div>
 
-            🌙 Dark Mode
+    <!-- DARK MODE -->
 
+    <button onclick="toggleDarkMode()">
+        🌙 Dark Mode
+    </button>
+
+    <br><br>
+
+    <!-- SEARCH -->
+
+    <input type="text"
+           id="searchInput"
+           placeholder="Search category..."
+           onkeyup="searchTopics()">
+
+    <!-- DAILY VERSE -->
+
+    <div class="daily-verse">
+
+        <h3>Daily Verse</h3>
+
+        <p id="dailyVerseText"></p>
+
+        <button onclick="generateDailyVerse()">
+            New Verse
         </button>
+
+    </div>
+
+    <!-- BIBLE SEARCH -->
+
+    <div class="daily-verse">
+
+        <h3>Search Bible Verse 📖</h3>
+
+        <input type="text"
+               id="bibleInput"
+               placeholder="Example: John 3:16">
 
         <br><br>
 
-        <!-- SEARCH -->
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search category..."
-            onkeyup="searchTopics()"
-        >
-
-        <!-- DAILY VERSE -->
-
-        <div class="daily-verse">
-
-            <h3>Daily Verse</h3>
-
-            <p id="dailyVerseText"></p>
-
-            <button onclick="generateDailyVerse()">
-
-                New Verse
-
-            </button>
-
-        </div>
-
-        <!-- BIBLE SEARCH -->
-
-        <div class="daily-verse">
-
-            <h3>Search Bible Verse 📖</h3>
-
-            <input
-                type="text"
-                id="bibleInput"
-                placeholder="Example: John 3:16"
-            >
-
-            <br><br>
-
-            <button onclick="searchBibleVerse()">
-
-                Search Verse
-
-            </button>
-
-            <div id="bibleResult"></div>
-
-        </div>
-
-        <!-- CATEGORY TITLE -->
-
-        <h2 class="topic-title">
-
-            Choose a Category
-
-        </h2>
-
-        <!-- CATEGORY GRID -->
-
-        <div class="home-grid">
-
-            <div class="card"
-                 onclick="openCategory('faith')">
-
-                ✝️ Faith & Trust
-
-            </div>
-
-            <div class="card"
-                 onclick="openCategory('students')">
-
-                🎓 Students & Youth
-
-            </div>
-
-            <div class="card"
-                 onclick="openCategory('marriage')">
-
-                💍 Marriage & Family
-
-            </div>
-
-            <div class="card"
-                 onclick="openCategory('business')">
-
-                💼 Business & Finance
-
-            </div>
-
-            <div class="card"
-                 onclick="openCategory('health')">
-
-                ❤️ Health & Healing
-
-            </div>
-
-            <div class="card"
-                 onclick="openCategory('emotions')">
-
-                🌿 Emotional Support
-
-            </div>
-
-        </div>
-
-        <!-- MAIN CONTENT -->
-
-        <div id="verse-box">
-
-            <h2>Welcome ✨</h2>
-
-            <p>
-                Select a category to explore
-                Bible wisdom and encouragement.
-            </p>
-
-        </div>
-
-        <!-- SUBTOPIC CONTENT -->
-
-        <div id="subtopic-box"></div>
-
-        <!-- AI CHAT -->
-
-        <div class="chatbot">
-
-            <h2>AI Encouragement Chat</h2>
-
-            <input
-                type="text"
-                id="userFeeling"
-                placeholder="Type how you feel..."
-            >
-
-            <br>
-
-            <button onclick="aiEncouragement()">
-
-                Get Encouragement
-
-            </button>
-
-            <div id="chat-response"></div>
-
-        </div>
-
-        <footer>
-
-            <p>
-                Made with faith and hope ✨
-            </p>
-
-        </footer>
+        <button onclick="searchBibleVerse()">
+            Search Verse
+        </button>
+
+        <div id="bibleResult"></div>
 
     </div>
 
-    <!-- BOTTOM NAVIGATION -->
+    <!-- BIBLE BOOK NAVIGATION -->
 
-    <div class="bottom-nav">
+    <div class="daily-verse">
 
-        <button>
-            🏠
-            <span>Home</span>
+        <h3>📖 Bible Book Navigation</h3>
+
+        <button onclick="showBooks('old')">
+            Old Testament
         </button>
 
-        <button>
-            📖
-            <span>Topics</span>
+        <button onclick="showBooks('new')">
+            New Testament
         </button>
 
-        <button>
-            🙏
-            <span>Prayer</span>
-        </button>
-
-        <button>
-            ⭐
-            <span>Favorites</span>
-        </button>
-
-        <button>
-            👤
-            <span>Profile</span>
-        </button>
+        <div id="bookList"></div>
 
     </div>
 
-    <script src="script.js"></script>
+    <!-- TOPICS -->
+
+    <h2>Choose Category</h2>
+
+    <div class="home-grid">
+
+        <div class="card" onclick="openCategory('faith')">
+            ✝️ Faith & Trust
+        </div>
+
+        <div class="card" onclick="openCategory('students')">
+            🎓 Students & Youth
+        </div>
+
+        <div class="card" onclick="openCategory('marriage')">
+            💍 Marriage & Family
+        </div>
+
+        <div class="card" onclick="openCategory('business')">
+            💼 Business & Finance
+        </div>
+
+        <div class="card" onclick="openCategory('health')">
+            ❤️ Health & Healing
+        </div>
+
+        <div class="card" onclick="openCategory('emotions')">
+            🌿 Emotional Support
+        </div>
+
+    </div>
+
+    <!-- CONTENT -->
+
+    <div id="subtopic-box"></div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>

@@ -1,109 +1,3 @@
-const verses = {
-
-    hope: {
-        verse: '"For I know the plans I have for you." — Jeremiah 29:11',
-        message: 'God has a beautiful purpose for your life.'
-    },
-
-    fear: {
-        verse: '"Do not fear, for I am with you." — Isaiah 41:10',
-        message: 'God walks beside you through every storm.'
-    },
-
-    anxiety: {
-        verse: '"Cast all your anxiety on Him." — 1 Peter 5:7',
-        message: 'You are never alone. God deeply cares for you.'
-    },
-
-    faith: {
-        verse: '"Faith can move mountains." — Matthew 17:20',
-        message: 'Keep trusting even when the road feels uncertain.'
-    },
-
-    love: {
-        verse: '"Love one another." — John 13:34',
-        message: 'God’s love never fails.'
-    },
-
-    strength: {
-        verse: '"I can do all things through Christ." — Philippians 4:13',
-        message: 'God strengthens you every day.'
-    },
-
-    depression: {
-        verse: '"The Lord is close to the brokenhearted." — Psalm 34:18',
-        message: 'God stays near in painful seasons.'
-    },
-
-    stress: {
-        verse: '"Come to me, all who are weary." — Matthew 11:28',
-        message: 'God offers peace and rest.'
-    },
-
-    forgiveness: {
-        verse: '"Forgive as the Lord forgave you." — Colossians 3:13',
-        message: 'Forgiveness brings healing.'
-    },
-
-    loneliness: {
-        verse: '"Never will I leave you." — Hebrews 13:5',
-        message: 'God is always with you.'
-    },
-
-    peace: {
-        verse: '"Peace I leave with you." — John 14:27',
-        message: 'God’s peace calms every storm.'
-    },
-
-    joy: {
-        verse: '"The joy of the Lord is your strength." — Nehemiah 8:10',
-        message: 'True joy is found in God.'
-    },
-
-    wisdom: {
-        verse: '"Ask God for wisdom." — James 1:5',
-        message: 'God guides your path.'
-    },
-
-    courage: {
-        verse: '"Be strong and courageous." — Joshua 1:9',
-        message: 'God gives courage for every challenge.'
-    }
-
-};
-
-let currentVerse = "";
-
-function showVerse(topic) {
-
-    currentVerse = `
-${verses[topic].verse}
-
-${verses[topic].message}
-`;
-
-    document.getElementById("verse-box").innerHTML = `
-
-        <h2>${topic.toUpperCase()}</h2>
-
-        <p>${verses[topic].verse}</p>
-
-        <p>
-            <strong>
-                ${verses[topic].message}
-            </strong>
-        </p>
-
-        <button onclick="saveFavorite()">
-            ⭐ Save Favorite
-        </button>
-
-        <button onclick="shareVerse()">
-            📤 Share Verse
-        </button>
-    `;
-}
-
 function toggleDarkMode() {
 
     document.body.classList.toggle("dark-mode");
@@ -116,22 +10,22 @@ function searchTopics() {
         .value
         .toLowerCase();
 
-    let buttons =
-        document.querySelectorAll(".topics button");
+    let cards =
+        document.querySelectorAll(".card");
 
-    buttons.forEach(button => {
+    cards.forEach(card => {
 
         if (
-            button.innerText
+            card.innerText
             .toLowerCase()
             .includes(input)
         ) {
 
-            button.style.display = "inline-block";
+            card.style.display = "block";
 
         } else {
 
-            button.style.display = "none";
+            card.style.display = "none";
         }
     });
 }
@@ -168,33 +62,261 @@ window.onload = function () {
     generateDailyVerse();
 };
 
-function saveFavorite() {
+function openCategory(category) {
 
-    localStorage.setItem(
-        "favoriteVerse",
-        currentVerse
-    );
+    let verseBox =
+        document.getElementById("verse-box");
 
-    alert("Verse saved ⭐");
-}
+    let content = "";
 
-function shareVerse() {
+    if (category === "faith") {
 
-    if (navigator.share) {
+        content = `
 
-        navigator.share({
+        <h2>✝️ Faith & Trust</h2>
 
-            title: "Everyday Manna",
+        <h3>Faith</h3>
 
-            text: currentVerse,
+        <p>
+        "Faith can move mountains."
+        — Matthew 17:20
+        </p>
 
-            url: window.location.href
-        });
+        <p>
+        Even when situations look impossible,
+        God asks us to trust Him.
+        </p>
 
-    } else {
+        <h3>Hope</h3>
 
-        alert("Sharing not supported.");
+        <p>
+        "For I know the plans I have for you."
+        — Jeremiah 29:11
+        </p>
+
+        <p>
+        God has a beautiful future prepared for you.
+        </p>
+
+        <h3>Courage</h3>
+
+        <p>
+        "Be strong and courageous."
+        — Joshua 1:9
+        </p>
+
+        <p>
+        God gives strength in difficult moments.
+        </p>
+        `;
     }
+
+    else if (category === "students") {
+
+        content = `
+
+        <h2>🎓 Students & Youth</h2>
+
+        <h3>Studies</h3>
+
+        <p>
+        "Do your best as working for the Lord."
+        — Colossians 3:23
+        </p>
+
+        <p>
+        Study with discipline and excellence.
+        </p>
+
+        <h3>Respect Parents</h3>
+
+        <p>
+        "Honor your father and mother."
+        — Ephesians 6:2
+        </p>
+
+        <p>
+        Respecting parents brings wisdom and blessings.
+        </p>
+
+        <h3>Future Success</h3>
+
+        <p>
+        "Commit your work to the Lord."
+        — Proverbs 16:3
+        </p>
+
+        <p>
+        God can guide your dreams and future career.
+        </p>
+        `;
+    }
+
+    else if (category === "marriage") {
+
+        content = `
+
+        <h2>💍 Marriage & Family</h2>
+
+        <h3>Love</h3>
+
+        <p>
+        "Love is patient, love is kind."
+        — 1 Corinthians 13:4
+        </p>
+
+        <p>
+        Marriage should be built on patience and love.
+        </p>
+
+        <h3>Family Unity</h3>
+
+        <p>
+        "A cord of three strands is not quickly broken."
+        — Ecclesiastes 4:12
+        </p>
+
+        <p>
+        Families grow stronger when centered on God.
+        </p>
+
+        <h3>Parenting</h3>
+
+        <p>
+        "Train up a child in the way he should go."
+        — Proverbs 22:6
+        </p>
+
+        <p>
+        Parents should guide children with wisdom and care.
+        </p>
+        `;
+    }
+
+    else if (category === "business") {
+
+        content = `
+
+        <h2>💼 Business & Finance</h2>
+
+        <h3>Hard Work</h3>
+
+        <p>
+        "The plans of the diligent lead to profit."
+        — Proverbs 21:5
+        </p>
+
+        <p>
+        Success comes through discipline and honesty.
+        </p>
+
+        <h3>Money Wisdom</h3>
+
+        <p>
+        "The wise store up knowledge."
+        — Proverbs 10:14
+        </p>
+
+        <p>
+        Manage finances carefully and wisely.
+        </p>
+
+        <h3>Integrity</h3>
+
+        <p>
+        "Better a little with righteousness."
+        — Proverbs 16:8
+        </p>
+
+        <p>
+        Honest business honors God.
+        </p>
+        `;
+    }
+
+    else if (category === "health") {
+
+        content = `
+
+        <h2>❤️ Health & Healing</h2>
+
+        <h3>Healing</h3>
+
+        <p>
+        "I am the Lord who heals you."
+        — Exodus 15:26
+        </p>
+
+        <p>
+        God cares deeply about your health and healing.
+        </p>
+
+        <h3>Peace</h3>
+
+        <p>
+        "Peace I leave with you."
+        — John 14:27
+        </p>
+
+        <p>
+        God's peace brings calmness to the mind.
+        </p>
+
+        <h3>Strength</h3>
+
+        <p>
+        "I can do all things through Christ."
+        — Philippians 4:13
+        </p>
+
+        <p>
+        God strengthens you physically and emotionally.
+        </p>
+        `;
+    }
+
+    else if (category === "emotions") {
+
+        content = `
+
+        <h2>🌿 Emotional Support</h2>
+
+        <h3>Anxiety</h3>
+
+        <p>
+        "Cast all your anxiety on Him."
+        — 1 Peter 5:7
+        </p>
+
+        <p>
+        God cares about every burden you carry.
+        </p>
+
+        <h3>Depression</h3>
+
+        <p>
+        "The Lord is close to the brokenhearted."
+        — Psalm 34:18
+        </p>
+
+        <p>
+        God stays near during painful seasons.
+        </p>
+
+        <h3>Loneliness</h3>
+
+        <p>
+        "Never will I leave you."
+        — Hebrews 13:5
+        </p>
+
+        <p>
+        God is always with you.
+        </p>
+        `;
+    }
+
+    verseBox.innerHTML = content;
 }
 
 function aiEncouragement() {
@@ -243,26 +365,6 @@ function aiEncouragement() {
 
         <p>
         God stays near even in difficult seasons.
-        </p>
-        `;
-    }
-
-    else if (
-        feeling.includes("fear") ||
-        feeling.includes("scared")
-    ) {
-
-        response = `
-
-        <h3>Be courageous ❤️</h3>
-
-        <p>
-        "Do not fear, for I am with you."
-        — Isaiah 41:10
-        </p>
-
-        <p>
-        God walks beside you through every storm.
         </p>
         `;
     }

@@ -371,4 +371,57 @@ function aiEncouragement() {
     document.getElementById(
         "chat-response"
     ).innerHTML = response;
-        }
+}
+
+/* BIBLE API SEARCH */
+
+async function searchBibleVerse() {
+
+    const reference = document
+        .getElementById("bibleInput")
+        .value;
+
+    if(reference === "") {
+
+        alert("Please enter a Bible verse.");
+
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+
+            `https://bible-api.com/${reference}`
+
+        );
+
+        const data = await response.json();
+
+        document.getElementById(
+            "bibleResult"
+        ).innerHTML = `
+
+            <div class="subtopic-content">
+
+                <h2>${data.reference}</h2>
+
+                <p>${data.text}</p>
+
+            </div>
+
+        `;
+
+    } catch(error) {
+
+        document.getElementById(
+            "bibleResult"
+        ).innerHTML = `
+
+            <p>
+                Verse not found.
+            </p>
+
+        `;
+    }
+}

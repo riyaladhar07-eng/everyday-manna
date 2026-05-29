@@ -22,11 +22,29 @@
 
     <div class="container">
 
-        <h1>Everyday Manna</h1>
+        <!-- HERO HEADER -->
 
-        <p class="subtitle">
-            Daily Hope & Bible Encouragement
-        </p>
+        <div class="hero">
+
+            <div class="hero-text">
+
+                <h1>Everyday Manna ✨</h1>
+
+                <p>
+                    God is with you today
+                </p>
+
+            </div>
+
+            <div class="profile-icon">
+
+                🙏
+
+            </div>
+
+        </div>
+
+        <!-- DARK MODE -->
 
         <button id="darkModeBtn"
                 onclick="toggleDarkMode()">
@@ -37,12 +55,16 @@
 
         <br><br>
 
+        <!-- SEARCH -->
+
         <input
             type="text"
             id="searchInput"
             placeholder="Search category..."
             onkeyup="searchTopics()"
         >
+
+        <!-- DAILY VERSE -->
 
         <div class="daily-verse">
 
@@ -56,9 +78,15 @@
 
         </div>
 
+        <!-- CATEGORY TITLE -->
+
         <h2 class="topic-title">
+
             Choose a Category
+
         </h2>
+
+        <!-- CATEGORY GRID -->
 
         <div class="home-grid">
 
@@ -106,6 +134,8 @@
 
         </div>
 
+        <!-- MAIN CONTENT -->
+
         <div id="verse-box">
 
             <h2>Welcome ✨</h2>
@@ -117,7 +147,11 @@
 
         </div>
 
+        <!-- SUBTOPIC CONTENT -->
+
         <div id="subtopic-box"></div>
+
+        <!-- AI CHAT -->
 
         <div class="chatbot">
 
@@ -132,7 +166,9 @@
             <br>
 
             <button onclick="aiEncouragement()">
+
                 Get Encouragement
+
             </button>
 
             <div id="chat-response"></div>
@@ -146,6 +182,37 @@
             </p>
 
         </footer>
+
+    </div>
+
+    <!-- BOTTOM NAVIGATION -->
+
+    <div class="bottom-nav">
+
+        <button>
+            🏠
+            <span>Home</span>
+        </button>
+
+        <button>
+            📖
+            <span>Topics</span>
+        </button>
+
+        <button>
+            🙏
+            <span>Prayer</span>
+        </button>
+
+        <button>
+            ⭐
+            <span>Favorites</span>
+        </button>
+
+        <button>
+            👤
+            <span>Profile</span>
+        </button>
 
     </div>
 

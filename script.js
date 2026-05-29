@@ -67,7 +67,14 @@ function openCategory(category) {
     let verseBox =
         document.getElementById("verse-box");
 
+    let subtopicBox =
+        document.getElementById("subtopic-box");
+
+    subtopicBox.innerHTML = "";
+
     let content = "";
+
+    // FAITH CATEGORY
 
     if (category === "faith") {
 
@@ -75,41 +82,46 @@ function openCategory(category) {
 
         <h2>✝️ Faith & Trust</h2>
 
-        <h3>Faith</h3>
-
         <p>
-        "Faith can move mountains."
-        — Matthew 17:20
+        Explore deeper topics about faith,
+        trust, courage, and hope.
         </p>
 
-        <p>
-        Even when situations look impossible,
-        God asks us to trust Him.
-        </p>
+        <div class="subtopics">
 
-        <h3>Hope</h3>
+            <button class="sub-btn"
+                    onclick="openSubtopic('trust')">
 
-        <p>
-        "For I know the plans I have for you."
-        — Jeremiah 29:11
-        </p>
+                Trust God
 
-        <p>
-        God has a beautiful future prepared for you.
-        </p>
+            </button>
 
-        <h3>Courage</h3>
+            <button class="sub-btn"
+                    onclick="openSubtopic('hope')">
 
-        <p>
-        "Be strong and courageous."
-        — Joshua 1:9
-        </p>
+                Hope
 
-        <p>
-        God gives strength in difficult moments.
-        </p>
+            </button>
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('courage')">
+
+                Courage
+
+            </button>
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('trials')">
+
+                Faith During Trials
+
+            </button>
+
+        </div>
         `;
     }
+
+    // STUDENTS CATEGORY
 
     else if (category === "students") {
 
@@ -117,7 +129,304 @@ function openCategory(category) {
 
         <h2>🎓 Students & Youth</h2>
 
-        <h3>Studies</h3>
+        <div class="subtopics">
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('studies')">
+
+                Studies
+
+            </button>
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('parents')">
+
+                Respect Parents
+
+            </button>
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('future')">
+
+                Future Success
+
+            </button>
+
+        </div>
+        `;
+    }
+
+    // MARRIAGE CATEGORY
+
+    else if (category === "marriage") {
+
+        content = `
+
+        <h2>💍 Marriage & Family</h2>
+
+        <div class="subtopics">
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('love')">
+
+                Love
+
+            </button>
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('family')">
+
+                Family Unity
+
+            </button>
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('parenting')">
+
+                Parenting
+
+            </button>
+
+        </div>
+        `;
+    }
+
+    // BUSINESS CATEGORY
+
+    else if (category === "business") {
+
+        content = `
+
+        <h2>💼 Business & Finance</h2>
+
+        <div class="subtopics">
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('hardwork')">
+
+                Hard Work
+
+            </button>
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('money')">
+
+                Money Wisdom
+
+            </button>
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('integrity')">
+
+                Integrity
+
+            </button>
+
+        </div>
+        `;
+    }
+
+    // HEALTH CATEGORY
+
+    else if (category === "health") {
+
+        content = `
+
+        <h2>❤️ Health & Healing</h2>
+
+        <div class="subtopics">
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('healing')">
+
+                Healing
+
+            </button>
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('peace')">
+
+                Peace
+
+            </button>
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('strength')">
+
+                Strength
+
+            </button>
+
+        </div>
+        `;
+    }
+
+    // EMOTIONS CATEGORY
+
+    else if (category === "emotions") {
+
+        content = `
+
+        <h2>🌿 Emotional Support</h2>
+
+        <div class="subtopics">
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('anxiety')">
+
+                Anxiety
+
+            </button>
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('depression')">
+
+                Depression
+
+            </button>
+
+            <button class="sub-btn"
+                    onclick="openSubtopic('loneliness')">
+
+                Loneliness
+
+            </button>
+
+        </div>
+        `;
+    }
+
+    verseBox.innerHTML = content;
+}
+
+function openSubtopic(type) {
+
+    let subtopicBox =
+        document.getElementById("subtopic-box");
+
+    let content = "";
+
+    // FAITH
+
+    if (type === "trust") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Trust God ✝️</h2>
+
+        <p>
+        "Trust in the Lord with all your heart."
+        — Proverbs 3:5
+        </p>
+
+        <p>
+        Even when life feels uncertain,
+        God asks us to trust Him fully.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+        Abraham trusted God even without
+        knowing where he was going.
+        </p>
+
+        </div>
+        `;
+    }
+
+    else if (type === "hope") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Hope 🌟</h2>
+
+        <p>
+        "For I know the plans I have for you."
+        — Jeremiah 29:11
+        </p>
+
+        <p>
+        God has a future and hope prepared for you.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+        Joseph stayed hopeful even after hardship.
+        </p>
+
+        </div>
+        `;
+    }
+
+    else if (type === "courage") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Courage 🛡️</h2>
+
+        <p>
+        "Be strong and courageous."
+        — Joshua 1:9
+        </p>
+
+        <p>
+        God strengthens us during fear and challenges.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+        David courageously faced Goliath with faith.
+        </p>
+
+        </div>
+        `;
+    }
+
+    else if (type === "trials") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Faith During Trials 🌧️</h2>
+
+        <p>
+        "Consider it pure joy whenever you face trials."
+        — James 1:2
+        </p>
+
+        <p>
+        Difficult seasons can strengthen our faith.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+        Job remained faithful during suffering.
+        </p>
+
+        </div>
+        `;
+    }
+
+    // STUDENTS
+
+    else if (type === "studies") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Studies 📚</h2>
 
         <p>
         "Do your best as working for the Lord."
@@ -128,7 +437,17 @@ function openCategory(category) {
         Study with discipline and excellence.
         </p>
 
-        <h3>Respect Parents</h3>
+        </div>
+        `;
+    }
+
+    else if (type === "parents") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Respect Parents 👨‍👩‍👧</h2>
 
         <p>
         "Honor your father and mother."
@@ -136,10 +455,20 @@ function openCategory(category) {
         </p>
 
         <p>
-        Respecting parents brings wisdom and blessings.
+        Respecting parents brings blessings and wisdom.
         </p>
 
-        <h3>Future Success</h3>
+        </div>
+        `;
+    }
+
+    else if (type === "future") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Future Success 🚀</h2>
 
         <p>
         "Commit your work to the Lord."
@@ -147,18 +476,22 @@ function openCategory(category) {
         </p>
 
         <p>
-        God can guide your dreams and future career.
+        God can guide your dreams and career.
         </p>
+
+        </div>
         `;
     }
 
-    else if (category === "marriage") {
+    // MARRIAGE
+
+    else if (type === "love") {
 
         content = `
 
-        <h2>💍 Marriage & Family</h2>
+        <div class="subtopic-content">
 
-        <h3>Love</h3>
+        <h2>Love ❤️</h2>
 
         <p>
         "Love is patient, love is kind."
@@ -169,7 +502,17 @@ function openCategory(category) {
         Marriage should be built on patience and love.
         </p>
 
-        <h3>Family Unity</h3>
+        </div>
+        `;
+    }
+
+    else if (type === "family") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Family Unity 👨‍👩‍👧‍👦</h2>
 
         <p>
         "A cord of three strands is not quickly broken."
@@ -177,10 +520,20 @@ function openCategory(category) {
         </p>
 
         <p>
-        Families grow stronger when centered on God.
+        Families grow stronger with God at the center.
         </p>
 
-        <h3>Parenting</h3>
+        </div>
+        `;
+    }
+
+    else if (type === "parenting") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Parenting 👶</h2>
 
         <p>
         "Train up a child in the way he should go."
@@ -188,18 +541,22 @@ function openCategory(category) {
         </p>
 
         <p>
-        Parents should guide children with wisdom and care.
+        Parents should guide children with wisdom.
         </p>
+
+        </div>
         `;
     }
 
-    else if (category === "business") {
+    // BUSINESS
+
+    else if (type === "hardwork") {
 
         content = `
 
-        <h2>💼 Business & Finance</h2>
+        <div class="subtopic-content">
 
-        <h3>Hard Work</h3>
+        <h2>Hard Work 💼</h2>
 
         <p>
         "The plans of the diligent lead to profit."
@@ -210,7 +567,17 @@ function openCategory(category) {
         Success comes through discipline and honesty.
         </p>
 
-        <h3>Money Wisdom</h3>
+        </div>
+        `;
+    }
+
+    else if (type === "money") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Money Wisdom 💰</h2>
 
         <p>
         "The wise store up knowledge."
@@ -218,10 +585,20 @@ function openCategory(category) {
         </p>
 
         <p>
-        Manage finances carefully and wisely.
+        Manage money wisely and responsibly.
         </p>
 
-        <h3>Integrity</h3>
+        </div>
+        `;
+    }
+
+    else if (type === "integrity") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Integrity 🤝</h2>
 
         <p>
         "Better a little with righteousness."
@@ -229,18 +606,22 @@ function openCategory(category) {
         </p>
 
         <p>
-        Honest business honors God.
+        Honest work honors God.
         </p>
+
+        </div>
         `;
     }
 
-    else if (category === "health") {
+    // HEALTH
+
+    else if (type === "healing") {
 
         content = `
 
-        <h2>❤️ Health & Healing</h2>
+        <div class="subtopic-content">
 
-        <h3>Healing</h3>
+        <h2>Healing ❤️</h2>
 
         <p>
         "I am the Lord who heals you."
@@ -248,10 +629,20 @@ function openCategory(category) {
         </p>
 
         <p>
-        God cares deeply about your health and healing.
+        God deeply cares about your healing.
         </p>
 
-        <h3>Peace</h3>
+        </div>
+        `;
+    }
+
+    else if (type === "peace") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Peace 🕊️</h2>
 
         <p>
         "Peace I leave with you."
@@ -259,10 +650,20 @@ function openCategory(category) {
         </p>
 
         <p>
-        God's peace brings calmness to the mind.
+        God's peace calms anxious hearts.
         </p>
 
-        <h3>Strength</h3>
+        </div>
+        `;
+    }
+
+    else if (type === "strength") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Strength 💪</h2>
 
         <p>
         "I can do all things through Christ."
@@ -270,18 +671,22 @@ function openCategory(category) {
         </p>
 
         <p>
-        God strengthens you physically and emotionally.
+        God gives strength for every challenge.
         </p>
+
+        </div>
         `;
     }
 
-    else if (category === "emotions") {
+    // EMOTIONS
+
+    else if (type === "anxiety") {
 
         content = `
 
-        <h2>🌿 Emotional Support</h2>
+        <div class="subtopic-content">
 
-        <h3>Anxiety</h3>
+        <h2>Anxiety 🌿</h2>
 
         <p>
         "Cast all your anxiety on Him."
@@ -292,7 +697,17 @@ function openCategory(category) {
         God cares about every burden you carry.
         </p>
 
-        <h3>Depression</h3>
+        </div>
+        `;
+    }
+
+    else if (type === "depression") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Depression 🌧️</h2>
 
         <p>
         "The Lord is close to the brokenhearted."
@@ -303,7 +718,17 @@ function openCategory(category) {
         God stays near during painful seasons.
         </p>
 
-        <h3>Loneliness</h3>
+        </div>
+        `;
+    }
+
+    else if (type === "loneliness") {
+
+        content = `
+
+        <div class="subtopic-content">
+
+        <h2>Loneliness 🤍</h2>
 
         <p>
         "Never will I leave you."
@@ -313,10 +738,12 @@ function openCategory(category) {
         <p>
         God is always with you.
         </p>
+
+        </div>
         `;
     }
 
-    verseBox.innerHTML = content;
+    subtopicBox.innerHTML = content;
 }
 
 function aiEncouragement() {
@@ -343,8 +770,7 @@ function aiEncouragement() {
         </p>
 
         <p>
-        God deeply cares for every burden
-        you carry.
+        God deeply cares for every burden.
         </p>
         `;
     }
@@ -364,7 +790,7 @@ function aiEncouragement() {
         </p>
 
         <p>
-        God stays near even in difficult seasons.
+        God stays near even during suffering.
         </p>
         `;
     }

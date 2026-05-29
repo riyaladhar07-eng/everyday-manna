@@ -11,8 +11,19 @@ const verses = {
             </p>
 
             <p>
-                Trust God even when you cannot
-                see the future.
+                Trust God even when you cannot see the future.
+            </p>
+
+            <h3>Prayer 🙏</h3>
+
+            <p>
+                Lord, strengthen my faith and help me trust You daily.
+            </p>
+
+            <h3>Example ✨</h3>
+
+            <p>
+                Abraham trusted God even without knowing the future.
             </p>
 
             <button class="share-btn"
@@ -33,13 +44,24 @@ const verses = {
             <h2>Students & Youth 🎓</h2>
 
             <p>
-                "Do your best as working
-                for the Lord."
+                "Do your best as working for the Lord."
                 — Colossians 3:23
             </p>
 
             <p>
                 Study with discipline and excellence.
+            </p>
+
+            <h3>Prayer 🙏</h3>
+
+            <p>
+                Lord, help students grow in wisdom and knowledge.
+            </p>
+
+            <h3>Example ✨</h3>
+
+            <p>
+                Daniel stayed faithful and became wise in Babylon.
             </p>
 
             <button class="share-btn"
@@ -68,6 +90,18 @@ const verses = {
                 Healthy families are built on love.
             </p>
 
+            <h3>Prayer 🙏</h3>
+
+            <p>
+                Lord, bless every home with peace and understanding.
+            </p>
+
+            <h3>Example ✨</h3>
+
+            <p>
+                Ruth remained loyal and loving toward Naomi.
+            </p>
+
             <button class="share-btn"
                     onclick="shareVerse(
                     'Love one another deeply - 1 Peter 4:8'
@@ -92,6 +126,18 @@ const verses = {
 
             <p>
                 God blesses honest work.
+            </p>
+
+            <h3>Prayer 🙏</h3>
+
+            <p>
+                Lord, guide my work and finances with wisdom.
+            </p>
+
+            <h3>Example ✨</h3>
+
+            <p>
+                Joseph managed Egypt wisely during famine.
             </p>
 
             <button class="share-btn"
@@ -120,6 +166,18 @@ const verses = {
                 God cares deeply about your healing.
             </p>
 
+            <h3>Prayer 🙏</h3>
+
+            <p>
+                Lord, bring healing and strength to every hurting heart.
+            </p>
+
+            <h3>Example ✨</h3>
+
+            <p>
+                Jesus healed the sick with compassion and love.
+            </p>
+
             <button class="share-btn"
                     onclick="shareVerse(
                     'I will restore you to health - Jeremiah 30:17'
@@ -144,6 +202,18 @@ const verses = {
 
             <p>
                 God gives rest to heavy hearts.
+            </p>
+
+            <h3>Prayer 🙏</h3>
+
+            <p>
+                Lord, comfort every anxious and lonely heart.
+            </p>
+
+            <h3>Example ✨</h3>
+
+            <p>
+                David cried to God during difficult times and found peace.
             </p>
 
             <button class="share-btn"
@@ -172,14 +242,9 @@ const dailyVerses = [
 
 function generateDailyVerse() {
 
-    const randomVerse =
-
-        dailyVerses[
-            Math.floor(
-                Math.random() *
-                dailyVerses.length
-            )
-        ];
+    const randomVerse = dailyVerses[
+        Math.floor(Math.random() * dailyVerses.length)
+    ];
 
     document.getElementById(
         "dailyVerseText"
@@ -204,13 +269,19 @@ function toggleDarkMode() {
 
 function shareVerse(text) {
 
-    navigator.share({
+    if (navigator.share) {
 
-        title: "Everyday Manna",
+        navigator.share({
 
-        text: text
+            title: "Everyday Manna",
 
-    });
+            text: text
+        });
+
+    } else {
+
+        alert("Sharing not supported on this device.");
+    }
 }
 
 function searchTopics() {
@@ -249,8 +320,10 @@ function aiEncouragement() {
 
     let response = "";
 
-    if (feeling.includes("anxious")
-        || feeling.includes("stress")) {
+    if (
+        feeling.includes("anxious") ||
+        feeling.includes("stress")
+    ) {
 
         response = `
             <p>
@@ -265,8 +338,8 @@ function aiEncouragement() {
     }
 
     else if (
-        feeling.includes("sad")
-        || feeling.includes("lonely")
+        feeling.includes("sad") ||
+        feeling.includes("lonely")
     ) {
 
         response = `
@@ -298,4 +371,4 @@ function aiEncouragement() {
     document.getElementById(
         "chat-response"
     ).innerHTML = response;
-}
+        }

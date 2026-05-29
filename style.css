@@ -15,7 +15,7 @@ body {
 
     width: 90%;
 
-    max-width: 900px;
+    max-width: 950px;
 
     margin: 40px auto;
 
@@ -173,6 +173,58 @@ h1 {
     animation: fadeIn 0.4s ease;
 }
 
+.subtopics {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    justify-content: center;
+
+    margin-top: 20px;
+}
+
+.sub-btn {
+
+    background: #7a5c3e;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.sub-btn:hover {
+
+    background: #5c432c;
+}
+
+.subtopic-content {
+
+    background: #faf7f2;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    margin-top: 25px;
+
+    line-height: 1.8;
+
+    animation: fadeIn 0.4s ease;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
 .chatbot {
 
     margin-top: 40px;
@@ -248,6 +300,7 @@ footer {
 
 .dark-mode .daily-verse,
 .dark-mode #verse-box,
+.dark-mode .subtopic-content,
 .dark-mode .chatbot {
 
     background: #333;

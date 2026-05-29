@@ -15,7 +15,7 @@ body {
 
     width: 90%;
 
-    max-width: 850px;
+    max-width: 900px;
 
     margin: 40px auto;
 
@@ -36,7 +36,7 @@ h1 {
 
     color: #7a5c3e;
 
-    font-size: 52px;
+    font-size: 50px;
 
     margin-bottom: 10px;
 }
@@ -119,37 +119,41 @@ h1 {
     margin-bottom: 20px;
 }
 
-.topics {
+.home-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
 
     margin-bottom: 35px;
 }
 
-.topics button {
+.card {
 
     background: #c8a97e;
 
-    border: none;
-
     color: white;
 
-    padding: 14px 22px;
+    padding: 30px;
 
-    margin: 8px;
-
-    border-radius: 12px;
+    border-radius: 15px;
 
     cursor: pointer;
 
-    font-size: 17px;
+    font-size: 20px;
+
+    font-weight: bold;
 
     transition: 0.3s;
 }
 
-.topics button:hover {
-
-    background: #a88355;
+.card:hover {
 
     transform: scale(1.05);
+
+    background: #a88355;
 }
 
 #verse-box {
@@ -167,23 +171,6 @@ h1 {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 
     animation: fadeIn 0.4s ease;
-}
-
-#verse-box button {
-
-    background: #c8a97e;
-
-    color: white;
-
-    border: none;
-
-    padding: 12px 18px;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    margin: 10px;
 }
 
 .chatbot {

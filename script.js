@@ -181,3 +181,106 @@ document.getElementById("bibleResult").innerHTML = `
 }
 
 }
+/* BIBLE BOOK NAVIGATION */
+
+const oldTestament = [
+"Genesis",
+"Exodus",
+"Leviticus",
+"Numbers",
+"Deuteronomy",
+"Joshua",
+"Judges",
+"Psalms",
+"Proverbs",
+"Isaiah",
+"Jeremiah"
+];
+
+const newTestament = [
+"Matthew",
+"Mark",
+"Luke",
+"John",
+"Acts",
+"Romans",
+"1 Corinthians",
+"2 Corinthians",
+"Galatians",
+"Ephesians"
+];
+
+function showBooks(type) {
+
+let books = type === "old"
+? oldTestament
+: newTestament;
+
+let html = "<h3>Select a Book</h3>";
+
+books.forEach(book => {
+
+html += `
+<button onclick="showChapters('${book}')">
+${book}
+</button>
+<br><br>
+`;
+
+});
+
+document.getElementById("bookList").innerHTML = html;
+}
+
+function showChapters(book) {
+
+let html = `<h3>${book}</h3>`;
+html += "<p>Select Chapter</p>";
+
+for (let i = 1; i <= 20; i++) {
+
+html += `
+<button onclick="openChapter('${book}', ${i})">
+${i}
+</button>
+`;
+
+}
+
+document.getElementById("bookList").innerHTML = html;
+}
+
+async function openChapter(book, chapter) {
+
+try {
+
+const response = await fetch(
+`https://bible-api.com/${book} ${chapter}`
+);
+
+const data = await response.json();
+
+document.getElementById("bookList").innerHTML = `
+
+<div class="subtopic-content">
+
+<h2>${data.reference}</h2>
+
+<p>${data.text}</p>
+
+<button onclick="shareVerse('${data.reference}')">
+📤 Share Chapter
+</button>
+
+</div>
+
+`;
+
+} catch (error) {
+
+document.getElementById("bookList").innerHTML =
+"<p>Chapter not found.</p>";
+
+}
+
+}

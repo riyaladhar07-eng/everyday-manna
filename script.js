@@ -6,6 +6,11 @@ faith: `
 <p>"Faith can move mountains." Matthew 17:20</p>
 <h3>Prayer</h3>
 <p>Lord, strengthen my faith.</p>
+
+<button onclick="shareVerse('Faith can move mountains - Matthew 17:20')">
+📤 Share Verse
+</button>
+
 </div>
 `,
 
@@ -15,6 +20,11 @@ students: `
 <p>"Do your best." Colossians 3:23</p>
 <h3>Prayer</h3>
 <p>Lord, help students grow.</p>
+
+<button onclick="shareVerse('Do your best - Colossians 3:23')">
+📤 Share Verse
+</button>
+
 </div>
 `,
 
@@ -24,6 +34,11 @@ marriage: `
 <p>"Love one another." 1 Peter 4:8</p>
 <h3>Prayer</h3>
 <p>Lord bless families.</p>
+
+<button onclick="shareVerse('Love one another - 1 Peter 4:8')">
+📤 Share Verse
+</button>
+
 </div>
 `,
 
@@ -33,6 +48,11 @@ business: `
 <p>"Commit your work to the Lord." Proverbs 16:3</p>
 <h3>Prayer</h3>
 <p>Lord guide my work.</p>
+
+<button onclick="shareVerse('Commit your work to the Lord - Proverbs 16:3')">
+📤 Share Verse
+</button>
+
 </div>
 `,
 
@@ -42,6 +62,11 @@ health: `
 <p>"I will heal you." Jeremiah 30:17</p>
 <h3>Prayer</h3>
 <p>Lord bring healing.</p>
+
+<button onclick="shareVerse('I will heal you - Jeremiah 30:17')">
+📤 Share Verse
+</button>
+
 </div>
 `,
 
@@ -51,6 +76,11 @@ emotions: `
 <p>"I am with you." Matthew 28:20</p>
 <h3>Prayer</h3>
 <p>Lord give peace.</p>
+
+<button onclick="shareVerse('I am with you - Matthew 28:20')">
+📤 Share Verse
+</button>
+
 </div>
 `
 
@@ -70,17 +100,14 @@ dailyVerses[Math.floor(Math.random() * dailyVerses.length)];
 
 generateDailyVerse();
 
-// OPEN CATEGORY
 function openCategory(cat) {
 document.getElementById("subtopic-box").innerHTML = verses[cat];
 }
 
-// DARK MODE
 function toggleDarkMode() {
 document.body.classList.toggle("dark-mode");
 }
 
-// SEARCH
 function searchTopics() {
 let input = document.getElementById("searchInput").value.toLowerCase();
 let cards = document.querySelectorAll(".card");
@@ -93,67 +120,64 @@ card.innerText.toLowerCase().includes(input)
 });
 }
 
-// SHARE
 function shareVerse(text) {
-navigator.share?.({
+
+if (navigator.share) {
+
+navigator.share({
 title: "Everyday Manna",
 text: text
 });
-}
 
-// AI
-function aiEncouragement() {
+} else {
 
-let f = document.getElementById("userFeeling").value.toLowerCase();
-
-document.getElementById("chat-response").innerHTML =
-f.includes("sad")
-? "<p>God is with you ❤️</p>"
-: "<p>Stay strong in Christ ✝️</p>";
+alert("Sharing not supported on this device.");
 
 }
 
-// BIBLE API
+}
+
+/* BIBLE API */
+
 async function searchBibleVerse() {
 
-let ref = document.getElementById("bibleInput").value;
+const reference = document.getElementById("bibleInput").value;
 
-let res = await fetch(`https://bible-api.com/${ref}`);
-let data = await res.json();
-
-document.getElementById("bibleResult").innerHTML =
-`<h3>${data.reference}</h3><p>${data.text}</p>`;
+if (reference === "") {
+alert("Please enter a Bible verse.");
+return;
 }
 
-// BIBLE NAVIGATION
-const oldTestament = [
-"Genesis","Exodus","Leviticus","Numbers","Deuteronomy",
-"Psalms","Proverbs","Isaiah","Jeremiah"
-];
+try {
 
-const newTestament = [
-"Matthew","Mark","Luke","John",
-"Acts","Romans","1 Corinthians","2 Corinthians"
-];
+const response = await fetch(
+`https://bible-api.com/${reference}`
+);
 
-function showBooks(type) {
+const data = await response.json();
 
-let books = type === "old" ? oldTestament : newTestament;
+document.getElementById("bibleResult").innerHTML = `
 
-let html = "<h4>Select Book</h4>";
+<div class="subtopic-content">
 
-books.forEach(b => {
-html += `<button onclick="openBook('${b}')">${b}</button><br><br>`;
-});
+<h2>${data.reference}</h2>
 
-document.getElementById("bookList").innerHTML = html;
+<p>${data.text}</p>
+
+<button onclick="shareVerse('${data.reference} - ${data.text}')">
+📤 Share Verse
+</button>
+
+</div>
+
+`;
+
+} catch (error) {
+
+document.getElementById("bibleResult").innerHTML = `
+<p>Verse not found.</p>
+`;
+
 }
 
-async function openBook(book) {
-
-let res = await fetch(`https://bible-api.com/${book} 1`);
-let data = await res.json();
-
-document.getElementById("bookList").innerHTML =
-`<h3>${data.reference}</h3><p>${data.text}</p>`;
 }
